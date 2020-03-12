@@ -60,6 +60,10 @@ public class DiagnosisServiceImpl2_2 extends DiagnosisServiceImpl implements Dia
 
 	}
 
+	public 	List<Diagnosis> getNewUniqueDiagnoses(Patient patient, Date fromDate){
+		return convert(Context.getDiagnosisService().getUniqueDiagnoses(patient, fromDate));	
+	}
+
 	public List<Diagnosis> getPrimaryDiagnoses(Encounter encounter){
 		if (adminService.getGlobalProperty(EmrApiConstants.GP_USE_LEGACY_DIAGNOSIS_SERVICE, "false").equalsIgnoreCase("true")) {
 			return super.getPrimaryDiagnoses(encounter);
